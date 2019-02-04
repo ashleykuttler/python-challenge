@@ -11,20 +11,38 @@ with open(budget_data_path, newline="") as budget_data_file:
 #set variables to zero
     total_months = 0
     total_profit_loss = 0
+    previous_row = None
+    monthly_changes = []
+
     for row in budget_data_reader:
 # count rows in file as total months
         total_months += 1
 # sum profit/loss column
         total_profit_loss += int(row[1])
 # average profit/loss column
-# loop through data and find max profit
-# loop through data and fin min profit(loss)
+    #subtract previous row profit/loss from current row profit/loss
+    # append change to list of changes
+        # list_of_changes.append(abs(row-previous))
+    # total changes
+    # divide total changes by total months      
+       # previous = row[1]
+        
+        
+# max profit
+# min profit(loss)
 # print analysis results
     print("Financial Analysis:")
     print("----------------------------")
     print("Total Months: " + str(total_months))
     print("Total Profit/Loss: $" + str(total_profit_loss))
+    print("Average Change: $")
+    print("Greatest Increase in Profits: ")
+    print("Greatest Decrease in Profits: ")
 
    
-
+# create path for new file
+results_path = os.path.join("budget_data_results.csv")
 # Write final results to text file 
+with open(results_path, "w", newline ="") as csvfile:
+    results_writer = csv.writer(csvfile)
+    #results_writer.writerow(["Financial Analysis: "], [f"Total Months:  {total_months}"])
