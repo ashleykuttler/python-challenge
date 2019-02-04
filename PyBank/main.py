@@ -8,10 +8,14 @@ with open(budget_data_path, newline="") as budget_data_file:
     budget_data_reader = csv.reader(budget_data_file, delimiter = ",")
 #Skip Header
     csv_header = next(budget_data_reader)
+#set variables to zero
+    total_months = 0
+    total_profit_loss = 0
+    for row in budget_data_reader:
 # count rows in file as total months
-    budgetdata = list(budget_data_reader)
-    total_months = len(budgetdata)
+        total_months += 1
 # sum profit/loss column
+        total_profit_loss += int(row[1])
 # average profit/loss column
 # loop through data and find max profit
 # loop through data and fin min profit(loss)
@@ -19,6 +23,7 @@ with open(budget_data_path, newline="") as budget_data_file:
     print("Financial Analysis:")
     print("----------------------------")
     print("Total Months: " + str(total_months))
+    print("Total Profit/Loss: $" + str(total_profit_loss))
 
    
 
