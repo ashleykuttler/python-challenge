@@ -11,7 +11,8 @@ with open(budget_data_path, newline="") as budget_data_file:
 #set variables to zero
     total_months = 0
     total_profit_loss = 0
-    previous_row = None
+    total_changes = 0
+    previous_row = 0 # !!instead of zero how do i define the first row change as null or none
     monthly_changes = []
 
     for row in budget_data_reader:
@@ -19,30 +20,36 @@ with open(budget_data_path, newline="") as budget_data_file:
         total_months += 1
 # sum profit/loss column
         total_profit_loss += int(row[1])
-# average profit/loss column
+# average change over entire period
     #subtract previous row profit/loss from current row profit/loss
+        change = int(row[1]) - int(previous_row)
     # append change to list of changes
-        # list_of_changes.append(abs(row-previous))
+        monthly_changes.append(int(change)) # !!add date to monthly changes
     # total changes
-    # divide total changes by total months      
-       # previous = row[1]
-        
-        
+        total_changes += int(change)
+    # divide total changes by total months  
+        avg_change = round((total_changes/total_months),2)                
 # max profit
+        greatest_increase = max(monthly_changes) # !!split elements to call max and corresponding date?
 # min profit(loss)
+        greatest_decrease = min(monthly_changes)
+#set previous row to current row at the end of each loop
+        previous_row = row[1]
 # print analysis results
     print("Financial Analysis:")
     print("----------------------------")
     print("Total Months: " + str(total_months))
     print("Total Profit/Loss: $" + str(total_profit_loss))
-    print("Average Change: $")
-    print("Greatest Increase in Profits: ")
-    print("Greatest Decrease in Profits: ")
+    print("Average Change: $" + str(avg_change))
+    print("Greatest Increase in Profits: $"+str(greatest_increase)+ " on ")
+    print("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" on ")
+   
 
    
-# create path for new file
+# create path for results file
 results_path = os.path.join("budget_data_results.csv")
 # Write final results to text file 
 with open(results_path, "w", newline ="") as csvfile:
     results_writer = csv.writer(csvfile)
+    #!! figure out syntax for writing results to new file
     #results_writer.writerow(["Financial Analysis: "], [f"Total Months:  {total_months}"])
