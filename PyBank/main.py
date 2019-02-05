@@ -6,7 +6,7 @@ budget_data_path = os.path.join("budget_data.csv")
 # open and read budget data csv file
 with open(budget_data_path, newline="") as budget_data_file:
     budget_data_reader = csv.reader(budget_data_file, delimiter = ",")
-#Skip Header
+#skip Header
     csv_header = next(budget_data_reader)
 #set variables to zero
     total_months = 0
@@ -17,7 +17,7 @@ with open(budget_data_path, newline="") as budget_data_file:
     previous_row = 0
     monthly_changes = []
     date_list = []
-
+#loop through each row in data
     for row in budget_data_reader:
 # count rows in file as total months
         total_months += 1
@@ -31,9 +31,9 @@ with open(budget_data_path, newline="") as budget_data_file:
 #append change and date to lists
             monthly_changes.append(int(change)) 
             date_list.append(row[0])
-# total changes
+# sum monthly changes
             total_changes += int(change) 
-# divide total changes by total months  
+# divide total changes by total months to get average change
             avg_change = round((total_changes/total_change_months),2)                
 # max profit
             greatest_increase = max(monthly_changes)
@@ -46,7 +46,7 @@ with open(budget_data_path, newline="") as budget_data_file:
 #set previous row to current row at the end of each loop
         first_row = False
         previous_row = row[1]
-# print analysis results
+# print analysis results to terminal 
     print("Financial Analysis:")
     print("----------------------------")
     print("Total Months: " + str(total_months))
