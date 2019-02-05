@@ -60,10 +60,10 @@ results_file = "budget_data_results.txt"
 # open & write results to text file 
 with open(results_file, "w") as txtfile:
 #write results to file
-    txtfile.write("Financial Analysis: ")
-    txtfile.write("-------------------------------------")
-    txtfile.write("Total Months: " + str(total_months))
-    txtfile.write("Total Profit/Loss: $" + str(total_profit_loss))
-    txtfile.write("Average Change: $" + str(avg_change))
-    txtfile.write("Greatest Increase in Profits: $"+str(greatest_increase)+ " on " + str(gi_date))
-    txtfile.write("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" on " + str(gd_date))
+    txtfile.write("Financial Analysis: \n")
+    txtfile.write("-------------------------------------\n")
+    txtfile.write("Total Months: " + str(total_months)+"\n")
+    txtfile.write("Total Profit/Loss: $" + str(total_profit_loss)+"\n")
+    txtfile.write("Average Change: $" + str(avg_change)+"\n")
+    txtfile.write("Greatest Increase in Profits: $"+str(greatest_increase)+ " on " + str(gi_date)+"\n")
+    txtfile.write("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" on " + str(gd_date)+"\n")
