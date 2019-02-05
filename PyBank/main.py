@@ -13,7 +13,7 @@ with open(budget_data_path, newline="") as budget_data_file:
     total_profit_loss = 0
     total_changes = 0
     previous_row = 0 # !!instead of zero how do i define the first row change as null or none
-    monthly_changes = []
+    monthly_changes = {}
 
     for row in budget_data_reader:
 # count rows in file as total months
@@ -23,14 +23,15 @@ with open(budget_data_path, newline="") as budget_data_file:
 # average change over entire period
     #subtract previous row profit/loss from current row profit/loss
         change = int(row[1]) - int(previous_row)
-    # append change to list of changes
-        monthly_changes.append(int(change)) # !!add date to monthly changes
+    #!! append change and date to dictionary monthly changes
+        #monthly_changes[change].append(int(change)) 
+        #monthly_changes[Date].append(row[0]) 
     # total changes
         total_changes += int(change)
     # divide total changes by total months  
         avg_change = round((total_changes/total_months),2)                
 # max profit
-        greatest_increase = max(monthly_changes) # !!split elements to call max and corresponding date?
+        greatest_increase = max(monthly_changes) # !! Call Max change and corresponding date from dic
 # min profit(loss)
         greatest_decrease = min(monthly_changes)
 #set previous row to current row at the end of each loop
@@ -43,6 +44,8 @@ with open(budget_data_path, newline="") as budget_data_file:
     print("Average Change: $" + str(avg_change))
     print("Greatest Increase in Profits: $"+str(greatest_increase)+ " on ")
     print("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" on ")
+    print(monthly_changes)
+    print(total_changes)
    
 
    
