@@ -55,16 +55,15 @@ with open(budget_data_path, newline="") as budget_data_file:
     print("Greatest Increase in Profits: $"+str(greatest_increase)+ " on " + str(gi_date))
     print("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" on " + str(gd_date))
     
-# create path for results csv file
-results_path = os.path.join("budget_data_results.csv")
-# open & write results to file defined as csv file delimiter ""
-with open(results_path, "w", newline ="") as csvfile:
-    results_writer = csv.writer(csvfile)
+# create results text file
+results_file = "budget_data_results.txt"
+# open & write results to text file 
+with open(results_file, "w") as txtfile:
 #write results to file
-    results_writer.writerow(["Financial Analysis: "])
-    results_writer.writerow(["-------------------------------------"])
-    results_writer.writerow(["Total Months: " + str(total_months)])
-    results_writer.writerow(["Total Profit/Loss: $" + str(total_profit_loss)])
-    results_writer.writerow(["Average Change: $" + str(avg_change)])
-    results_writer.writerow(["Greatest Increase in Profits: $"+str(greatest_increase)+ " on " + str(gi_date)])
-    results_writer.writerow(["Greatest Decrease in Profits: $"+ str(greatest_decrease)+" on " + str(gd_date)])
+    txtfile.write("Financial Analysis: ")
+    txtfile.write("-------------------------------------")
+    txtfile.write("Total Months: " + str(total_months))
+    txtfile.write("Total Profit/Loss: $" + str(total_profit_loss))
+    txtfile.write("Average Change: $" + str(avg_change))
+    txtfile.write("Greatest Increase in Profits: $"+str(greatest_increase)+ " on " + str(gi_date))
+    txtfile.write("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" on " + str(gd_date))
