@@ -12,7 +12,7 @@ with open(budget_data_path, newline="") as budget_data_file:
     total_months = 0
     total_profit_loss = 0
     total_changes = 0
-    previous_row = 0 # !!instead of zero how do i define the first row change as null or none
+    previous_row = 0 # !!instead of zero how do i define the first row change as null or skip it
     monthly_changes = []
     date_list = []
 
@@ -23,6 +23,7 @@ with open(budget_data_path, newline="") as budget_data_file:
         total_profit_loss += int(row[1])
 # average change over entire period
     #subtract previous row profit/loss from current row profit/loss
+       # !! if previous_row = row[1]:
         change = int(row[1]) - int(previous_row)
 #append change and date to lists
         monthly_changes.append(int(change)) 
@@ -33,10 +34,12 @@ with open(budget_data_path, newline="") as budget_data_file:
         avg_change = round((total_changes/total_months),2)                
 # max profit
         greatest_increase = max(monthly_changes)
-# !! Callcorresponding date from list
+        gi_index = monthly_changes.index(greatest_increase)
+        gi_date = date_list[gi_index]
 # min profit(loss)
         greatest_decrease = min(monthly_changes)
-# !! Callcorresponding date from list
+        gd_index = monthly_changes.index(greatest_decrease)
+        gd_date = date_list[gd_index]
 #set previous row to current row at the end of each loop
         previous_row = row[1]
 # print analysis results
@@ -45,11 +48,12 @@ with open(budget_data_path, newline="") as budget_data_file:
     print("Total Months: " + str(total_months))
     print("Total Profit/Loss: $" + str(total_profit_loss))
     print("Average Change: $" + str(avg_change))
-    print("Greatest Increase in Profits: $"+str(greatest_increase)+ " on ")
-    print("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" on ")
+    print("Greatest Increase in Profits: $"+str(greatest_increase)+ " on " + str(gi_date))
+    print("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" on " + str(gd_date))
     print(monthly_changes)
     print(total_changes)
     print(date_list)
+   
    
 
    
