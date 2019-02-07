@@ -11,10 +11,10 @@ with open(election_data_path, newline = "") as election_data_file:
 # set variables to zero
     total_votes = 0
     all_candidates = []
-    khan_votes= 0
-    correy_votes = 0
-    li_votes = 0
-    otooley_votes = 0
+    cd0_votes= 0
+    cd1_votes = 0
+    cd2_votes = 0
+    cd3_votes = 0
     tally_results = {}
 
 #loop through each row in data
@@ -27,31 +27,37 @@ with open(election_data_path, newline = "") as election_data_file:
             all_candidates.append(candidate)
 #The total number of votes each candidate won &
 #The percentage of votes each candidate won
-        if row[2] == "Khan":
-            khan_votes += 1
-            khan_percent = round((khan_votes / total_votes)*100,4)
-        elif row[2] == "Correy":
-            correy_votes += 1
-            correy_percent = round((correy_votes / total_votes)*100,4)
-        elif row[2] == "Li":
-            li_votes += 1
-            li_percent = round((li_votes / total_votes)*100,4)
-        elif row[2] == "O'Tooley":
-            otooley_votes += 1
-            otooley_percent = round((otooley_votes / total_votes)*100,4)
+#append tally results to dictionary
+        if row[2] == all_candidates[0]:
+            cd0_votes += 1
+            cd0_percent = round((cd0_votes / total_votes)*100,4)
+            tally_results.update({all_candidates[0]:cd0_votes})
+        elif row[2] == all_candidates[1]:
+            cd1_votes += 1
+            cd1_percent = round((cd1_votes / total_votes)*100,4)
+            tally_results.update({all_candidates[1]:cd1_votes})
+        elif row[2] == all_candidates[2]:
+            cd2_votes += 1
+            cd2_percent = round((cd2_votes / total_votes)*100,4)
+            tally_results.update({all_candidates[2]:cd2_votes})
+        elif row[2] == all_candidates[3]:
+            cd3_votes += 1
+            cd3_percent = round((cd3_votes / total_votes)*100,4)
+            tally_results.update({all_candidates[3]:cd3_votes})
 
-#The winner of the election based on popular vote
+# find max value in dictionary retrieve KEY to find winner based on popular vote
+    winner = max(tally_results, key=tally_results.get)
 
 #print analysis results to terminal
 print("Election Results:")
 print("------------------------------")
 print("Total Votes: "+ str(total_votes))
 print("------------------------------")
-print("Khan: "+ str(khan_percent) + "% " +str(khan_votes))
-print("Correy: "+ str(correy_percent) + "% "+ str(correy_votes))
-print("Li: "+ str(li_percent) + "% "+ str(li_votes))
-print("O'Tooley: "+ str(otooley_percent) + "% "+ str(otooley_votes))
-
+print(all_candidates[0]+": " + str(cd0_percent) + "% " +str(cd0_votes))
+print(all_candidates[1]+": " + str(cd1_percent) + "% "+ str(cd1_votes))
+print(all_candidates[2]+": " + str(cd2_percent) + "% "+ str(cd2_votes))
+print(all_candidates[3]+": " + str(cd3_percent) + "% "+ str(cd3_votes))
 print("------------------------------")
-print("Winner: ")
+print("Winner: "+ str(winner))
 print("------------------------------")
+#!!write results to a text file
