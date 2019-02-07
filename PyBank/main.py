@@ -66,4 +66,4 @@ with open(results_file, "w") as txtfile:
     txtfile.write("Total Profit/Loss: $" + str(total_profit_loss)+"\n")
     txtfile.write("Average Change: $" + str(avg_change)+"\n")
     txtfile.write("Greatest Increase in Profits: $"+str(greatest_increase)+ " on " + str(gi_date)+"\n")
-    txtfile.write("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" on " + str(gd_date)+"\n")
+    txtfile.write("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" on " + str(gd_date))

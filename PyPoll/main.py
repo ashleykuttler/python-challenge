@@ -60,4 +60,21 @@ print(all_candidates[3]+": " + str(cd3_percent) + "% "+ str(cd3_votes))
 print("------------------------------")
 print("Winner: "+ str(winner))
 print("------------------------------")
-#!!write results to a text file
+
+#create results file text
+results_file = "election_data_results.txt"
+#open and write results to text file
+with open(results_file, "w") as txtfile:
+#write results to file
+    txtfile.write("Election Results:\n")
+    txtfile.write("------------------------------\n")
+    txtfile.write("Total Votes: "+ str(total_votes)+"\n")
+    txtfile.write("------------------------------\n")
+    txtfile.write(all_candidates[0]+": " + str(cd0_percent) + "% " +str(cd0_votes)+"\n")
+    txtfile.write(all_candidates[1]+": " + str(cd1_percent) + "% "+ str(cd1_votes)+"\n")
+    txtfile.write(all_candidates[2]+": " + str(cd2_percent) + "% "+ str(cd2_votes)+"\n")
+    txtfile.write(all_candidates[3]+": " + str(cd3_percent) + "% "+ str(cd3_votes)+"\n")
+    txtfile.write("------------------------------\n")
+    txtfile.write("Winner: "+ str(winner)+"\n")
+    txtfile.write("------------------------------")
+
