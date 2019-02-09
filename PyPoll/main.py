@@ -25,18 +25,6 @@ with open(election_data_path, newline = "") as election_data_file:
         candidate = row[2]
         if candidate not in all_candidates:
             all_candidates.append(candidate)
-<<<<<<< HEAD
-    
-        
-
-        
-#The percentage of votes each candidate won
-    # create dictionary of candidates and votes?
-#The total number of votes each candidate won
-#The winner of the election based on popular vote
-
-
-=======
 #The total number of votes each candidate won &
 #The percentage of votes each candidate won
 #append tally results to dictionary
@@ -59,8 +47,6 @@ with open(election_data_path, newline = "") as election_data_file:
 
 # find max value in dictionary retrieve KEY to find winner based on popular vote
     winner = max(tally_results, key=tally_results.get)
->>>>>>> b5b585b60aa052f11270c06c663de927e8f3fd9a
-
 #print analysis results to terminal
 print("Election Results:")
 print("------------------------------")
