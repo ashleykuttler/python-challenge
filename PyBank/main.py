@@ -52,8 +52,8 @@ with open(budget_data_path, newline="") as budget_data_file:
     print("Total Months: " + str(total_months))
     print("Total Profit/Loss: $" + str(total_profit_loss))
     print("Average Change: $" + str(avg_change))
-    print("Greatest Increase in Profits: $"+str(greatest_increase)+ " on " + str(gi_date))
-    print("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" on " + str(gd_date))
+    print("Greatest Increase in Profits: $"+str(greatest_increase)+ " as of " + str(gi_date))
+    print("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" as of " + str(gd_date))
     
 # create results text file
 results_file = "budget_data_results.txt"
@@ -65,5 +65,5 @@ with open(results_file, "w") as txtfile:
     txtfile.write("Total Months: " + str(total_months)+"\n")
     txtfile.write("Total Profit/Loss: $" + str(total_profit_loss)+"\n")
     txtfile.write("Average Change: $" + str(avg_change)+"\n")
-    txtfile.write("Greatest Increase in Profits: $"+str(greatest_increase)+ " on " + str(gi_date)+"\n")
-    txtfile.write("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" on " + str(gd_date)+"\n")
+    txtfile.write("Greatest Increase in Profits: $"+str(greatest_increase)+ " as of " + str(gi_date)+"\n")
+    txtfile.write("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" as of " + str(gd_date)+"\n")

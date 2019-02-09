@@ -19,23 +19,14 @@ with open(election_data_path, newline = "") as election_data_file:
         candidate = row[2]
         if candidate not in all_candidates:
             all_candidates.append(candidate)
+    
         
 
         
 #The percentage of votes each candidate won
+    # create dictionary of candidates and votes?
 #The total number of votes each candidate won
 #The winner of the election based on popular vote
-
-
-
-
-
-
-
-
-
-
-
 
 
 
