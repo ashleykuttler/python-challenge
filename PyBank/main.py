@@ -65,5 +65,10 @@ with open(results_file, "w") as txtfile:
     txtfile.write("Total Months: " + str(total_months)+"\n")
     txtfile.write("Total Profit/Loss: $" + str(total_profit_loss)+"\n")
     txtfile.write("Average Change: $" + str(avg_change)+"\n")
+<<<<<<< HEAD
     txtfile.write("Greatest Increase in Profits: $"+str(greatest_increase)+ " as of " + str(gi_date)+"\n")
     txtfile.write("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" as of " + str(gd_date)+"\n")
+=======
+    txtfile.write("Greatest Increase in Profits: $"+str(greatest_increase)+ " on " + str(gi_date)+"\n")
+    txtfile.write("Greatest Decrease in Profits: $"+ str(greatest_decrease)+" on " + str(gd_date))
+>>>>>>> b5b585b60aa052f11270c06c663de927e8f3fd9a
